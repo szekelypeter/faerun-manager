@@ -1,0 +1,59 @@
+1. lépés:
+Karakterlista
+Név-szint-Nagy text field
+
+Kampánylista
+Név-Nagy text field
+
+2. lépés
+Karakterek összekötve kampányokkal
+Onnantól ne a szint legyen kiírva hanem a kampány a karaktereknél
+
+3. lépés
+Abiscoreok
+Profi bonus
+Proficiency lista
+Faj
+Szint
+Kaszt
+Background
+Max HP
+AC
+Speed
+Hit dice
+Personality (text x4)
+Features (text)
+Proficiencies+languages (text)
+Equipment (text)
+Weapon lista (text)
+Sztori
+Kép
+Spellek (text)
+
+4. lépés
+Új táblában az aktualitások a karakterrel
+Current HP
+AC modifier
+Speed modifier
+Temporary HP
+Gold-Silver-Copper
+Spell slotok
+
+5. lépés
+Weapon tábla
+új tábla, ahol fel vannak sorolva a lehetséges fegyverek, és válogathatnak belőle
+Bővíthető legyen
+
+6. lépés
+Spelllista
+hasonlóan mint az előző
+
+7. lépés
+Short rest, long rest gombok
+Featureöknél is legyenek amiket short vagy long resetel és látszik hogy resetelődnek
+Ehhet a featureöknek is lista kell, viszont azt nem kell újrahasználhatóan, csak simán mindenki magának
+
+8. lépés
+Elhasználódó tárgyak is lista, súlyok, darabszám
+Encumbrance számláló
+
