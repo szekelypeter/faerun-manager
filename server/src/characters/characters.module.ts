@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { CharacterResolver } from './character.resolver';
+import { CharactersResolver } from './characters.resolver';
 import { CharactersService } from './characters.service';
 
 @Module({
-  providers: [CharacterResolver, CharactersService],
+  providers: [CharactersResolver, CharactersService],
 })
 export class CharactersModule {}

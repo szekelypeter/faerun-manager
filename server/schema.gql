@@ -6,9 +6,36 @@ type Character {
   id: Int!
   name: String!
   level: Int!
-  details: String!
+  details: String
+}
+
+type Campaign {
+  id: Int!
+  name: String!
+  details: String
 }
 
 type Query {
+  character(id: Int!): Character!
   characters: [Character!]!
+  Campaigns: [Campaign!]!
+}
+
+type Mutation {
+  createCharacter(newCharacterData: NewCharacterInput!): Character!
+  updateCharacter(updateCharacterData: UpdateCharacterInput!): Character!
+  removeCharacter(id: Int!): Boolean!
+}
+
+input NewCharacterInput {
+  name: String!
+  level: Int!
+  details: String
+}
+
+input UpdateCharacterInput {
+  id: Int!
+  name: String!
+  level: Int!
+  details: String
 }
