@@ -1,0 +1,14 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Character {
+  id: Int!
+  name: String!
+  level: Int!
+  details: String!
+}
+
+type Query {
+  characters: [Character!]!
+}
