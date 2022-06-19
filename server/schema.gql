@@ -2,141 +2,26 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Campaign {
-  id: Int!
-  name: String!
-  details: String
-}
-
 type Character {
   id: ID!
   name: String!
   level: Int!
   details: String
+  campaignId: Float!
+  campaign: Campaign!
 }
 
-type ShortRestResult {
-  healthRestored: Int!
-}
-
-type DeleteManyResponse {
-  """The number of records deleted."""
-  deletedCount: Int!
-}
-
-type CharacterDeleteResponse {
-  id: ID
-  name: String
-  level: Int
+type Campaign {
+  id: ID!
+  name: String!
   details: String
-}
-
-type UpdateManyResponse {
-  """The number of records updated."""
-  updatedCount: Int!
-}
-
-type CharacterEdge {
-  """The node containing the Character"""
-  node: Character!
-
-  """Cursor for this node."""
-  cursor: ConnectionCursor!
-}
-
-"""Cursor for paging through collections"""
-scalar ConnectionCursor
-
-type PageInfo {
-  """true if paging forward and there are more records."""
-  hasNextPage: Boolean
-
-  """true if paging backwards and there are more records."""
-  hasPreviousPage: Boolean
-
-  """The cursor of the first returned record."""
-  startCursor: ConnectionCursor
-
-  """The cursor of the last returned record."""
-  endCursor: ConnectionCursor
-}
-
-type CharacterConnection {
-  """Paging information"""
-  pageInfo: PageInfo!
-
-  """Array of edges."""
-  edges: [CharacterEdge!]!
-}
-
-type CharacterAggregateGroupBy {
-  id: ID
-  name: String
-  level: Int
-  details: String
-}
-
-type CharacterCountAggregate {
-  id: Int
-  name: Int
-  level: Int
-  details: Int
-}
-
-type CharacterSumAggregate {
-  id: Float
-  level: Float
-}
-
-type CharacterAvgAggregate {
-  id: Float
-  level: Float
-}
-
-type CharacterMinAggregate {
-  id: ID
-  name: String
-  level: Int
-  details: String
-}
-
-type CharacterMaxAggregate {
-  id: ID
-  name: String
-  level: Int
-  details: String
-}
-
-type Query {
-  character(
-    """The id of the record to find."""
-    id: ID!
-  ): Character
   characters(
-    """Limit or page results."""
-    paging: CursorPaging = {first: 10}
-
     """Specify to filter the records returned."""
     filter: CharacterFilter = {}
 
     """Specify to sort results."""
     sorting: [CharacterSort!] = []
-  ): CharacterConnection!
-  Campaigns: [Campaign!]!
-}
-
-input CursorPaging {
-  """Paginate before opaque cursor"""
-  before: ConnectionCursor
-
-  """Paginate after opaque cursor"""
-  after: ConnectionCursor
-
-  """Paginate first"""
-  first: Int
-
-  """Paginate last"""
-  last: Int
+  ): [Character!]!
 }
 
 input CharacterFilter {
@@ -146,6 +31,7 @@ input CharacterFilter {
   name: StringFieldComparison
   level: IntFieldComparison
   details: StringFieldComparison
+  campaignId: NumberFieldComparison
 }
 
 input IDFilterComparison {
@@ -202,6 +88,26 @@ input IntFieldComparisonBetween {
   upper: Int!
 }
 
+input NumberFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: Float
+  neq: Float
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  in: [Float!]
+  notIn: [Float!]
+  between: NumberFieldComparisonBetween
+  notBetween: NumberFieldComparisonBetween
+}
+
+input NumberFieldComparisonBetween {
+  lower: Float!
+  upper: Float!
+}
+
 input CharacterSort {
   field: CharacterSortFields!
   direction: SortDirection!
@@ -213,6 +119,7 @@ enum CharacterSortFields {
   name
   level
   details
+  campaignId
 }
 
 """Sort Directions"""
@@ -227,15 +134,262 @@ enum SortNulls {
   NULLS_LAST
 }
 
+type DeleteManyResponse {
+  """The number of records deleted."""
+  deletedCount: Int!
+}
+
+type CampaignDeleteResponse {
+  id: ID
+  name: String
+  details: String
+}
+
+type UpdateManyResponse {
+  """The number of records updated."""
+  updatedCount: Int!
+}
+
+type CampaignEdge {
+  """The node containing the Campaign"""
+  node: Campaign!
+
+  """Cursor for this node."""
+  cursor: ConnectionCursor!
+}
+
+"""Cursor for paging through collections"""
+scalar ConnectionCursor
+
+type PageInfo {
+  """true if paging forward and there are more records."""
+  hasNextPage: Boolean
+
+  """true if paging backwards and there are more records."""
+  hasPreviousPage: Boolean
+
+  """The cursor of the first returned record."""
+  startCursor: ConnectionCursor
+
+  """The cursor of the last returned record."""
+  endCursor: ConnectionCursor
+}
+
+type CampaignConnection {
+  """Paging information"""
+  pageInfo: PageInfo!
+
+  """Array of edges."""
+  edges: [CampaignEdge!]!
+}
+
+type CampaignAggregateGroupBy {
+  id: ID
+  name: String
+  details: String
+}
+
+type CampaignCountAggregate {
+  id: Int
+  name: Int
+  details: Int
+}
+
+type CampaignSumAggregate {
+  id: Float
+}
+
+type CampaignAvgAggregate {
+  id: Float
+}
+
+type CampaignMinAggregate {
+  id: ID
+  name: String
+  details: String
+}
+
+type CampaignMaxAggregate {
+  id: ID
+  name: String
+  details: String
+}
+
+type ShortRestResult {
+  healthRestored: Int!
+}
+
+type CharacterDeleteResponse {
+  id: ID
+  name: String
+  level: Int
+  details: String
+  campaignId: Float
+}
+
+type CharacterEdge {
+  """The node containing the Character"""
+  node: Character!
+
+  """Cursor for this node."""
+  cursor: ConnectionCursor!
+}
+
+type CharacterConnection {
+  """Paging information"""
+  pageInfo: PageInfo!
+
+  """Array of edges."""
+  edges: [CharacterEdge!]!
+}
+
+type CharacterAggregateGroupBy {
+  id: ID
+  name: String
+  level: Int
+  details: String
+  campaignId: Float
+}
+
+type CharacterCountAggregate {
+  id: Int
+  name: Int
+  level: Int
+  details: Int
+  campaignId: Int
+}
+
+type CharacterSumAggregate {
+  id: Float
+  level: Float
+  campaignId: Float
+}
+
+type CharacterAvgAggregate {
+  id: Float
+  level: Float
+  campaignId: Float
+}
+
+type CharacterMinAggregate {
+  id: ID
+  name: String
+  level: Int
+  details: String
+  campaignId: Float
+}
+
+type CharacterMaxAggregate {
+  id: ID
+  name: String
+  level: Int
+  details: String
+  campaignId: Float
+}
+
+type Query {
+  character(
+    """The id of the record to find."""
+    id: ID!
+  ): Character
+  characters(
+    """Limit or page results."""
+    paging: CursorPaging = {first: 10}
+
+    """Specify to filter the records returned."""
+    filter: CharacterFilter = {}
+
+    """Specify to sort results."""
+    sorting: [CharacterSort!] = []
+  ): CharacterConnection!
+  campaign(
+    """The id of the record to find."""
+    id: ID!
+  ): Campaign
+  campaigns(
+    """Limit or page results."""
+    paging: CursorPaging = {first: 10}
+
+    """Specify to filter the records returned."""
+    filter: CampaignFilter = {}
+
+    """Specify to sort results."""
+    sorting: [CampaignSort!] = []
+  ): CampaignConnection!
+}
+
+input CursorPaging {
+  """Paginate before opaque cursor"""
+  before: ConnectionCursor
+
+  """Paginate after opaque cursor"""
+  after: ConnectionCursor
+
+  """Paginate first"""
+  first: Int
+
+  """Paginate last"""
+  last: Int
+}
+
+input CampaignFilter {
+  and: [CampaignFilter!]
+  or: [CampaignFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
+  details: StringFieldComparison
+  characters: CampaignFilterCharacterFilter
+}
+
+input CampaignFilterCharacterFilter {
+  and: [CampaignFilterCharacterFilter!]
+  or: [CampaignFilterCharacterFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
+  level: IntFieldComparison
+  details: StringFieldComparison
+  campaignId: NumberFieldComparison
+}
+
+input CampaignSort {
+  field: CampaignSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum CampaignSortFields {
+  id
+  name
+  details
+}
+
 type Mutation {
   characterLongRest(id: Int!): Boolean!
   characterShortRest(id: Int!): ShortRestResult!
+  setCampaignOnCharacter(input: SetCampaignOnCharacterInput!): Character!
   createOneCharacter(input: CreateOneCharacterInput!): Character!
   createManyCharacters(input: CreateManyCharactersInput!): [Character!]!
   updateOneCharacter(input: UpdateOneCharacterInput!): Character!
   updateManyCharacters(input: UpdateManyCharactersInput!): UpdateManyResponse!
   deleteOneCharacter(input: DeleteOneCharacterInput!): CharacterDeleteResponse!
   deleteManyCharacters(input: DeleteManyCharactersInput!): DeleteManyResponse!
+  addCharactersToCampaign(input: AddCharactersToCampaignInput!): Campaign!
+  setCharactersOnCampaign(input: SetCharactersOnCampaignInput!): Campaign!
+  removeCharactersFromCampaign(input: RemoveCharactersFromCampaignInput!): Campaign!
+  createOneCampaign(input: CreateOneCampaignInput!): Campaign!
+  createManyCampaigns(input: CreateManyCampaignsInput!): [Campaign!]!
+  updateOneCampaign(input: UpdateOneCampaignInput!): Campaign!
+  updateManyCampaigns(input: UpdateManyCampaignsInput!): UpdateManyResponse!
+  deleteOneCampaign(input: DeleteOneCampaignInput!): CampaignDeleteResponse!
+  deleteManyCampaigns(input: DeleteManyCampaignsInput!): DeleteManyResponse!
+}
+
+input SetCampaignOnCharacterInput {
+  """The id of the record."""
+  id: ID!
+
+  """The id of relation."""
+  relationId: ID!
 }
 
 input CreateOneCharacterInput {
@@ -248,6 +402,7 @@ input CreateCharacter {
   name: String
   level: Int
   details: String
+  campaignId: Float
 }
 
 input CreateManyCharactersInput {
@@ -268,6 +423,7 @@ input UpdateCharacter {
   name: String
   level: Int
   details: String
+  campaignId: Float
 }
 
 input UpdateManyCharactersInput {
@@ -285,6 +441,7 @@ input CharacterUpdateFilter {
   name: StringFieldComparison
   level: IntFieldComparison
   details: StringFieldComparison
+  campaignId: NumberFieldComparison
 }
 
 input DeleteOneCharacterInput {
@@ -303,5 +460,94 @@ input CharacterDeleteFilter {
   id: IDFilterComparison
   name: StringFieldComparison
   level: IntFieldComparison
+  details: StringFieldComparison
+  campaignId: NumberFieldComparison
+}
+
+input AddCharactersToCampaignInput {
+  """The id of the record."""
+  id: ID!
+
+  """The ids of the relations."""
+  relationIds: [ID!]!
+}
+
+input SetCharactersOnCampaignInput {
+  """The id of the record."""
+  id: ID!
+
+  """The ids of the relations."""
+  relationIds: [ID!]!
+}
+
+input RemoveCharactersFromCampaignInput {
+  """The id of the record."""
+  id: ID!
+
+  """The ids of the relations."""
+  relationIds: [ID!]!
+}
+
+input CreateOneCampaignInput {
+  """The record to create"""
+  campaign: CreateCampaign!
+}
+
+input CreateCampaign {
+  id: ID
+  name: String
+  details: String
+}
+
+input CreateManyCampaignsInput {
+  """Array of records to create"""
+  campaigns: [CreateCampaign!]!
+}
+
+input UpdateOneCampaignInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UpdateCampaign!
+}
+
+input UpdateCampaign {
+  id: ID
+  name: String
+  details: String
+}
+
+input UpdateManyCampaignsInput {
+  """Filter used to find fields to update"""
+  filter: CampaignUpdateFilter!
+
+  """The update to apply to all records found using the filter"""
+  update: UpdateCampaign!
+}
+
+input CampaignUpdateFilter {
+  and: [CampaignUpdateFilter!]
+  or: [CampaignUpdateFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
+  details: StringFieldComparison
+}
+
+input DeleteOneCampaignInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+input DeleteManyCampaignsInput {
+  """Filter to find records to delete"""
+  filter: CampaignDeleteFilter!
+}
+
+input CampaignDeleteFilter {
+  and: [CampaignDeleteFilter!]
+  or: [CampaignDeleteFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
   details: StringFieldComparison
 }

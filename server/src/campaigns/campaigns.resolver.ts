@@ -1,15 +1,10 @@
 import { Query, Resolver } from "@nestjs/graphql";
-import { Campaign } from "./campaign.model";
+import { Campaign } from "./campaign.entity";
 import { CampaignsService } from "./campaigns.service";
 
-@Resolver(of => Campaign)
+@Resolver()
 export class CampaignsResolver {
   constructor(
     private CampaignsService: CampaignsService,
   ) {}
-
-  @Query(returns => [Campaign])
-  Campaigns(): Promise<Campaign[]> {
-    return Promise.resolve([]);
-  }
 }
