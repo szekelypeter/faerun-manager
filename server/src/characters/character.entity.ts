@@ -15,5 +15,5 @@ export class Character extends Model {
   level: number;
 
   @Column
-  details: string;
+  details?: string;
 }

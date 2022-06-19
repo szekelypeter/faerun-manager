@@ -2,10 +2,98 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type CharacterDTO {
-  id: Int!
+type Character {
+  id: ID!
   name: String!
   level: Int!
+  details: String
+}
+
+type DeleteManyResponse {
+  """The number of records deleted."""
+  deletedCount: Int!
+}
+
+type CharacterDeleteResponse {
+  id: ID
+  name: String
+  level: Int
+  details: String
+}
+
+type UpdateManyResponse {
+  """The number of records updated."""
+  updatedCount: Int!
+}
+
+type CharacterEdge {
+  """The node containing the Character"""
+  node: Character!
+
+  """Cursor for this node."""
+  cursor: ConnectionCursor!
+}
+
+"""Cursor for paging through collections"""
+scalar ConnectionCursor
+
+type PageInfo {
+  """true if paging forward and there are more records."""
+  hasNextPage: Boolean
+
+  """true if paging backwards and there are more records."""
+  hasPreviousPage: Boolean
+
+  """The cursor of the first returned record."""
+  startCursor: ConnectionCursor
+
+  """The cursor of the last returned record."""
+  endCursor: ConnectionCursor
+}
+
+type CharacterConnection {
+  """Paging information"""
+  pageInfo: PageInfo!
+
+  """Array of edges."""
+  edges: [CharacterEdge!]!
+}
+
+type CharacterAggregateGroupBy {
+  id: ID
+  name: String
+  level: Int
+  details: String
+}
+
+type CharacterCountAggregate {
+  id: Int
+  name: Int
+  level: Int
+  details: Int
+}
+
+type CharacterSumAggregate {
+  id: Float
+  level: Float
+}
+
+type CharacterAvgAggregate {
+  id: Float
+  level: Float
+}
+
+type CharacterMinAggregate {
+  id: ID
+  name: String
+  level: Int
+  details: String
+}
+
+type CharacterMaxAggregate {
+  id: ID
+  name: String
+  level: Int
   details: String
 }
 
@@ -16,26 +104,198 @@ type Campaign {
 }
 
 type Query {
-  character(id: Int!): CharacterDTO!
-  characters: [CharacterDTO!]!
+  character(
+    """The id of the record to find."""
+    id: ID!
+  ): Character
+  characters(
+    """Limit or page results."""
+    paging: CursorPaging = {first: 10}
+
+    """Specify to filter the records returned."""
+    filter: CharacterFilter = {}
+
+    """Specify to sort results."""
+    sorting: [CharacterSort!] = []
+  ): CharacterConnection!
   Campaigns: [Campaign!]!
 }
 
+input CursorPaging {
+  """Paginate before opaque cursor"""
+  before: ConnectionCursor
+
+  """Paginate after opaque cursor"""
+  after: ConnectionCursor
+
+  """Paginate first"""
+  first: Int
+
+  """Paginate last"""
+  last: Int
+}
+
+input CharacterFilter {
+  and: [CharacterFilter!]
+  or: [CharacterFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
+  level: IntFieldComparison
+  details: StringFieldComparison
+}
+
+input IDFilterComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: ID
+  neq: ID
+  gt: ID
+  gte: ID
+  lt: ID
+  lte: ID
+  like: ID
+  notLike: ID
+  iLike: ID
+  notILike: ID
+  in: [ID!]
+  notIn: [ID!]
+}
+
+input StringFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: String
+  neq: String
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  like: String
+  notLike: String
+  iLike: String
+  notILike: String
+  in: [String!]
+  notIn: [String!]
+}
+
+input IntFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: Int
+  neq: Int
+  gt: Int
+  gte: Int
+  lt: Int
+  lte: Int
+  in: [Int!]
+  notIn: [Int!]
+  between: IntFieldComparisonBetween
+  notBetween: IntFieldComparisonBetween
+}
+
+input IntFieldComparisonBetween {
+  lower: Int!
+  upper: Int!
+}
+
+input CharacterSort {
+  field: CharacterSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum CharacterSortFields {
+  id
+  name
+  level
+  details
+}
+
+"""Sort Directions"""
+enum SortDirection {
+  ASC
+  DESC
+}
+
+"""Sort Nulls Options"""
+enum SortNulls {
+  NULLS_FIRST
+  NULLS_LAST
+}
+
 type Mutation {
-  createCharacter(newCharacterData: NewCharacterInput!): CharacterDTO!
-  updateCharacter(updateCharacterData: UpdateCharacterInput!): CharacterDTO!
-  removeCharacter(id: Int!): Boolean!
+  createOneCharacter(input: CreateOneCharacterInput!): Character!
+  createManyCharacters(input: CreateManyCharactersInput!): [Character!]!
+  updateOneCharacter(input: UpdateOneCharacterInput!): Character!
+  updateManyCharacters(input: UpdateManyCharactersInput!): UpdateManyResponse!
+  deleteOneCharacter(input: DeleteOneCharacterInput!): CharacterDeleteResponse!
+  deleteManyCharacters(input: DeleteManyCharactersInput!): DeleteManyResponse!
 }
 
-input NewCharacterInput {
-  name: String!
-  level: Int!
+input CreateOneCharacterInput {
+  """The record to create"""
+  character: CreateCharacter!
+}
+
+input CreateCharacter {
+  id: ID
+  name: String
+  level: Int
   details: String
 }
 
-input UpdateCharacterInput {
-  id: Int!
-  name: String!
-  level: Int!
+input CreateManyCharactersInput {
+  """Array of records to create"""
+  characters: [CreateCharacter!]!
+}
+
+input UpdateOneCharacterInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UpdateCharacter!
+}
+
+input UpdateCharacter {
+  id: ID
+  name: String
+  level: Int
   details: String
+}
+
+input UpdateManyCharactersInput {
+  """Filter used to find fields to update"""
+  filter: CharacterUpdateFilter!
+
+  """The update to apply to all records found using the filter"""
+  update: UpdateCharacter!
+}
+
+input CharacterUpdateFilter {
+  and: [CharacterUpdateFilter!]
+  or: [CharacterUpdateFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
+  level: IntFieldComparison
+  details: StringFieldComparison
+}
+
+input DeleteOneCharacterInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+input DeleteManyCharactersInput {
+  """Filter to find records to delete"""
+  filter: CharacterDeleteFilter!
+}
+
+input CharacterDeleteFilter {
+  and: [CharacterDeleteFilter!]
+  or: [CharacterDeleteFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
+  level: IntFieldComparison
+  details: StringFieldComparison
 }

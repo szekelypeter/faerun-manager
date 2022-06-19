@@ -1,16 +1,17 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { FilterableField, IDField } from '@nestjs-query/query-graphql';
+import { Field, ID, Int, ObjectType } from '@nestjs/graphql';
 
-@ObjectType()
+@ObjectType('Character')
 export class CharacterDTO {
-  @Field(type => Int)
-  id: number;
+  @IDField(type => ID)
+  id!: number;
 
-  @Field()
-  name: string;
+  @FilterableField()
+  name!: string;
 
-  @Field(type => Int)
-  level: number;
+  @FilterableField(type => Int)
+  level!: number;
 
-  @Field({ nullable: true })
+  @FilterableField({ nullable: true })
   details?: string;
 }
