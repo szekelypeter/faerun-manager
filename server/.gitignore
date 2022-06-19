@@ -3,3 +3,5 @@ dist/
 
 # TypeScript incremental compilation cache
 *.tsbuildinfo
+
+db/database.sqlite

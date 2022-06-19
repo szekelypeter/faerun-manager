@@ -1,32 +1,32 @@
 import { Args, Int, Mutation, Query, Resolver } from "@nestjs/graphql";
-import { Character } from "./character.model";
+import { CharacterDTO } from "./character.model";
 import { CharactersService } from "./characters.service";
 import { NewCharacterInput } from "./dto/new-character.input";
 import { UpdateCharacterInput } from "./dto/update-character.input";
 
-@Resolver(of => Character)
+@Resolver()
 export class CharactersResolver {
   constructor(
     private charactersService: CharactersService,
   ) {}
 
-  @Query(returns => Character)
-  character(@Args('id', { type: () => Int }) id: number): Promise<Character> {
+  @Query(returns => CharacterDTO)
+  character(@Args('id', { type: () => Int }) id: number): Promise<CharacterDTO> {
     return this.charactersService.findOneById(id);
   }
 
-  @Query(returns => [Character])
-  characters(): Promise<Character[]> {
+  @Query(returns => [CharacterDTO])
+  characters(): Promise<CharacterDTO[]> {
     return this.charactersService.findAll();
   }
 
-  @Mutation(returns => Character)
-  async createCharacter(@Args('newCharacterData') newCharacterData: NewCharacterInput): Promise<Character> {
+  @Mutation(returns => CharacterDTO)
+  async createCharacter(@Args('newCharacterData') newCharacterData: NewCharacterInput): Promise<CharacterDTO> {
     return this.charactersService.create(newCharacterData);
   }
 
-  @Mutation(returns => Character)
-  async updateCharacter(@Args('updateCharacterData') updateCharacterData: UpdateCharacterInput): Promise<Character> {
+  @Mutation(returns => Boolean)
+  async updateCharacter(@Args('updateCharacterData') updateCharacterData: UpdateCharacterInput): Promise<Boolean> {
     const { id } = updateCharacterData;
     return this.charactersService.update(id, updateCharacterData);
   }

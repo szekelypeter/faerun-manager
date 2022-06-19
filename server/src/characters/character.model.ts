@@ -1,7 +1,7 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
-export class Character {
+export class CharacterDTO {
   @Field(type => Int)
   id: number;
 
@@ -12,5 +12,5 @@ export class Character {
   level: number;
 
   @Field({ nullable: true })
-  details: string;
+  details?: string;
 }

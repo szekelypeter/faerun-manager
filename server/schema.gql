@@ -2,7 +2,7 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Character {
+type CharacterDTO {
   id: Int!
   name: String!
   level: Int!
@@ -16,14 +16,14 @@ type Campaign {
 }
 
 type Query {
-  character(id: Int!): Character!
-  characters: [Character!]!
+  character(id: Int!): CharacterDTO!
+  characters: [CharacterDTO!]!
   Campaigns: [Campaign!]!
 }
 
 type Mutation {
-  createCharacter(newCharacterData: NewCharacterInput!): Character!
-  updateCharacter(updateCharacterData: UpdateCharacterInput!): Character!
+  createCharacter(newCharacterData: NewCharacterInput!): CharacterDTO!
+  updateCharacter(updateCharacterData: UpdateCharacterInput!): CharacterDTO!
   removeCharacter(id: Int!): Boolean!
 }
 
