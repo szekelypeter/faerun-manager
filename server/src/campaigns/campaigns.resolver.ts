@@ -1,5 +1,4 @@
-import { Query, Resolver } from "@nestjs/graphql";
-import { Campaign } from "./campaign.entity";
+import { Resolver } from "@nestjs/graphql";
 import { CampaignsService } from "./campaigns.service";
 
 @Resolver()

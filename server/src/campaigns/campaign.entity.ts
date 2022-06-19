@@ -1,4 +1,4 @@
-import { FilterableCursorConnection, FilterableField, FilterableUnPagedRelation, IDField, Relation } from '@nestjs-query/query-graphql';
+import { FilterableField, FilterableUnPagedRelation, IDField } from '@nestjs-query/query-graphql';
 import { ID, ObjectType } from '@nestjs/graphql';
 import { AllowNull, AutoIncrement, Column, HasMany, Model, PrimaryKey, Table } from 'sequelize-typescript';
 import { Character } from 'src/characters/character.entity';

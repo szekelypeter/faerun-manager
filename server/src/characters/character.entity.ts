@@ -1,5 +1,5 @@
 import { FilterableField, IDField, Relation } from '@nestjs-query/query-graphql';
-import { Field, ID, Int, ObjectType } from '@nestjs/graphql';
+import { ID, Int, ObjectType } from '@nestjs/graphql';
 import { AllowNull, AutoIncrement, BelongsTo, Column, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript';
 import { Campaign } from 'src/campaigns/campaign.entity';
 
