@@ -2,11 +2,21 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Campaign {
+  id: Int!
+  name: String!
+  details: String
+}
+
 type Character {
   id: ID!
   name: String!
   level: Int!
   details: String
+}
+
+type ShortRestResult {
+  healthRestored: Int!
 }
 
 type DeleteManyResponse {
@@ -94,12 +104,6 @@ type CharacterMaxAggregate {
   id: ID
   name: String
   level: Int
-  details: String
-}
-
-type Campaign {
-  id: Int!
-  name: String!
   details: String
 }
 
@@ -224,6 +228,8 @@ enum SortNulls {
 }
 
 type Mutation {
+  characterLongRest(id: Int!): Boolean!
+  characterShortRest(id: Int!): ShortRestResult!
   createOneCharacter(input: CreateOneCharacterInput!): Character!
   createManyCharacters(input: CreateManyCharactersInput!): [Character!]!
   updateOneCharacter(input: UpdateOneCharacterInput!): Character!

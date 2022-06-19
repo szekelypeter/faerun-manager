@@ -1,10 +1,9 @@
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { CharactersModule } from './characters/characters.module';
-import { CampaignsModule } from './campaigns/campaigns.module';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { Character } from './characters/character.entity';
+import { CampaignsModule } from './campaigns/campaigns.module';
+import { CharactersModule } from './characters/characters.module';
 
 @Module({
   imports: [

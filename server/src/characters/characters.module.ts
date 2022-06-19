@@ -3,7 +3,6 @@ import { NestjsQuerySequelizeModule } from '@nestjs-query/query-sequelize';
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Character } from './character.entity';
-import { CharacterDTO } from './character.model';
 import { CharactersResolver } from './characters.resolver';
 import { CharactersService } from './characters.service';
 
@@ -12,9 +11,9 @@ import { CharactersService } from './characters.service';
     SequelizeModule.forFeature([Character]),
     NestjsQueryGraphQLModule.forFeature({
       imports: [NestjsQuerySequelizeModule.forFeature([Character])],
-      resolvers: [{ DTOClass: CharacterDTO, EntityClass: Character }],
+      resolvers: [{ DTOClass: Character, EntityClass: Character }],
     }),
   ],
-  // providers: [CharactersResolver, CharactersService],
+  providers: [CharactersResolver, CharactersService],
 })
 export class CharactersModule {}
