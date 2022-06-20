@@ -4,12 +4,39 @@
 
 type Character {
   id: ID!
-  name: String!
-  level: Int!
-  details: String
-  campaignId: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
+  campaignId: Float!
+  name: String!
+  level: Int!
+  class: String!
+  race: String!
+  experiencePoints: Int!
+  background: String!
+  alignment: String!
+  strengthScore: Int!
+  dexterityScore: Int!
+  constitutionScore: Int!
+  intelligenceScore: Int!
+  wisdomScore: Int!
+  charismaScore: Int!
+  proficiencyBonus: Int!
+  proficiencies: String!
+  hitPointMaximum: Int!
+  armorClass: Int!
+  speed: Int!
+  hitDice: String!
+  personalityTraits: String!
+  ideals: String!
+  bonds: String!
+  flaws: String!
+  features: String!
+  otherProficiencies: String!
+  languages: String!
+  equipment: String!
+  weapons: String!
+  backstory: String!
+  spells: String!
   campaign: Campaign!
 }
 
@@ -37,12 +64,39 @@ input CharacterFilter {
   and: [CharacterFilter!]
   or: [CharacterFilter!]
   id: IDFilterComparison
-  name: StringFieldComparison
-  level: IntFieldComparison
-  details: StringFieldComparison
-  campaignId: NumberFieldComparison
   createdAt: DateFieldComparison
   updatedAt: DateFieldComparison
+  campaignId: NumberFieldComparison
+  name: StringFieldComparison
+  level: IntFieldComparison
+  class: StringFieldComparison
+  race: StringFieldComparison
+  experiencePoints: IntFieldComparison
+  background: StringFieldComparison
+  alignment: StringFieldComparison
+  strengthScore: IntFieldComparison
+  dexterityScore: IntFieldComparison
+  constitutionScore: IntFieldComparison
+  intelligenceScore: IntFieldComparison
+  wisdomScore: IntFieldComparison
+  charismaScore: IntFieldComparison
+  proficiencyBonus: IntFieldComparison
+  proficiencies: StringFieldComparison
+  hitPointMaximum: IntFieldComparison
+  armorClass: IntFieldComparison
+  speed: IntFieldComparison
+  hitDice: StringFieldComparison
+  personalityTraits: StringFieldComparison
+  ideals: StringFieldComparison
+  bonds: StringFieldComparison
+  flaws: StringFieldComparison
+  features: StringFieldComparison
+  otherProficiencies: StringFieldComparison
+  languages: StringFieldComparison
+  equipment: StringFieldComparison
+  weapons: StringFieldComparison
+  backstory: StringFieldComparison
+  spells: StringFieldComparison
 }
 
 input IDFilterComparison {
@@ -60,6 +114,46 @@ input IDFilterComparison {
   notILike: ID
   in: [ID!]
   notIn: [ID!]
+}
+
+input DateFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: DateTime
+  neq: DateTime
+  gt: DateTime
+  gte: DateTime
+  lt: DateTime
+  lte: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  between: DateFieldComparisonBetween
+  notBetween: DateFieldComparisonBetween
+}
+
+input DateFieldComparisonBetween {
+  lower: DateTime!
+  upper: DateTime!
+}
+
+input NumberFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: Float
+  neq: Float
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  in: [Float!]
+  notIn: [Float!]
+  between: NumberFieldComparisonBetween
+  notBetween: NumberFieldComparisonBetween
+}
+
+input NumberFieldComparisonBetween {
+  lower: Float!
+  upper: Float!
 }
 
 input StringFieldComparison {
@@ -99,46 +193,6 @@ input IntFieldComparisonBetween {
   upper: Int!
 }
 
-input NumberFieldComparison {
-  is: Boolean
-  isNot: Boolean
-  eq: Float
-  neq: Float
-  gt: Float
-  gte: Float
-  lt: Float
-  lte: Float
-  in: [Float!]
-  notIn: [Float!]
-  between: NumberFieldComparisonBetween
-  notBetween: NumberFieldComparisonBetween
-}
-
-input NumberFieldComparisonBetween {
-  lower: Float!
-  upper: Float!
-}
-
-input DateFieldComparison {
-  is: Boolean
-  isNot: Boolean
-  eq: DateTime
-  neq: DateTime
-  gt: DateTime
-  gte: DateTime
-  lt: DateTime
-  lte: DateTime
-  in: [DateTime!]
-  notIn: [DateTime!]
-  between: DateFieldComparisonBetween
-  notBetween: DateFieldComparisonBetween
-}
-
-input DateFieldComparisonBetween {
-  lower: DateTime!
-  upper: DateTime!
-}
-
 input CharacterSort {
   field: CharacterSortFields!
   direction: SortDirection!
@@ -147,12 +201,39 @@ input CharacterSort {
 
 enum CharacterSortFields {
   id
-  name
-  level
-  details
-  campaignId
   createdAt
   updatedAt
+  campaignId
+  name
+  level
+  class
+  race
+  experiencePoints
+  background
+  alignment
+  strengthScore
+  dexterityScore
+  constitutionScore
+  intelligenceScore
+  wisdomScore
+  charismaScore
+  proficiencyBonus
+  proficiencies
+  hitPointMaximum
+  armorClass
+  speed
+  hitDice
+  personalityTraits
+  ideals
+  bonds
+  flaws
+  features
+  otherProficiencies
+  languages
+  equipment
+  weapons
+  backstory
+  spells
 }
 
 """Sort Directions"""
@@ -247,12 +328,39 @@ type ShortRestResult {
 
 type CharacterDeleteResponse {
   id: ID
-  name: String
-  level: Int
-  details: String
-  campaignId: Float
   createdAt: DateTime
   updatedAt: DateTime
+  campaignId: Float
+  name: String
+  level: Int
+  class: String
+  race: String
+  experiencePoints: Int
+  background: String
+  alignment: String
+  strengthScore: Int
+  dexterityScore: Int
+  constitutionScore: Int
+  intelligenceScore: Int
+  wisdomScore: Int
+  charismaScore: Int
+  proficiencyBonus: Int
+  proficiencies: String
+  hitPointMaximum: Int
+  armorClass: Int
+  speed: Int
+  hitDice: String
+  personalityTraits: String
+  ideals: String
+  bonds: String
+  flaws: String
+  features: String
+  otherProficiencies: String
+  languages: String
+  equipment: String
+  weapons: String
+  backstory: String
+  spells: String
 }
 
 type CharacterConnection {
@@ -265,54 +373,184 @@ type CharacterConnection {
 
 type CharacterAggregateGroupBy {
   id: ID
-  name: String
-  level: Int
-  details: String
-  campaignId: Float
   createdAt: DateTime
   updatedAt: DateTime
+  campaignId: Float
+  name: String
+  level: Int
+  class: String
+  race: String
+  experiencePoints: Int
+  background: String
+  alignment: String
+  strengthScore: Int
+  dexterityScore: Int
+  constitutionScore: Int
+  intelligenceScore: Int
+  wisdomScore: Int
+  charismaScore: Int
+  proficiencyBonus: Int
+  proficiencies: String
+  hitPointMaximum: Int
+  armorClass: Int
+  speed: Int
+  hitDice: String
+  personalityTraits: String
+  ideals: String
+  bonds: String
+  flaws: String
+  features: String
+  otherProficiencies: String
+  languages: String
+  equipment: String
+  weapons: String
+  backstory: String
+  spells: String
 }
 
 type CharacterCountAggregate {
   id: Int
-  name: Int
-  level: Int
-  details: Int
-  campaignId: Int
   createdAt: Int
   updatedAt: Int
+  campaignId: Int
+  name: Int
+  level: Int
+  class: Int
+  race: Int
+  experiencePoints: Int
+  background: Int
+  alignment: Int
+  strengthScore: Int
+  dexterityScore: Int
+  constitutionScore: Int
+  intelligenceScore: Int
+  wisdomScore: Int
+  charismaScore: Int
+  proficiencyBonus: Int
+  proficiencies: Int
+  hitPointMaximum: Int
+  armorClass: Int
+  speed: Int
+  hitDice: Int
+  personalityTraits: Int
+  ideals: Int
+  bonds: Int
+  flaws: Int
+  features: Int
+  otherProficiencies: Int
+  languages: Int
+  equipment: Int
+  weapons: Int
+  backstory: Int
+  spells: Int
 }
 
 type CharacterSumAggregate {
   id: Float
-  level: Float
   campaignId: Float
+  level: Float
+  experiencePoints: Float
+  strengthScore: Float
+  dexterityScore: Float
+  constitutionScore: Float
+  intelligenceScore: Float
+  wisdomScore: Float
+  charismaScore: Float
+  proficiencyBonus: Float
+  hitPointMaximum: Float
+  armorClass: Float
+  speed: Float
 }
 
 type CharacterAvgAggregate {
   id: Float
-  level: Float
   campaignId: Float
+  level: Float
+  experiencePoints: Float
+  strengthScore: Float
+  dexterityScore: Float
+  constitutionScore: Float
+  intelligenceScore: Float
+  wisdomScore: Float
+  charismaScore: Float
+  proficiencyBonus: Float
+  hitPointMaximum: Float
+  armorClass: Float
+  speed: Float
 }
 
 type CharacterMinAggregate {
   id: ID
-  name: String
-  level: Int
-  details: String
-  campaignId: Float
   createdAt: DateTime
   updatedAt: DateTime
+  campaignId: Float
+  name: String
+  level: Int
+  class: String
+  race: String
+  experiencePoints: Int
+  background: String
+  alignment: String
+  strengthScore: Int
+  dexterityScore: Int
+  constitutionScore: Int
+  intelligenceScore: Int
+  wisdomScore: Int
+  charismaScore: Int
+  proficiencyBonus: Int
+  proficiencies: String
+  hitPointMaximum: Int
+  armorClass: Int
+  speed: Int
+  hitDice: String
+  personalityTraits: String
+  ideals: String
+  bonds: String
+  flaws: String
+  features: String
+  otherProficiencies: String
+  languages: String
+  equipment: String
+  weapons: String
+  backstory: String
+  spells: String
 }
 
 type CharacterMaxAggregate {
   id: ID
-  name: String
-  level: Int
-  details: String
-  campaignId: Float
   createdAt: DateTime
   updatedAt: DateTime
+  campaignId: Float
+  name: String
+  level: Int
+  class: String
+  race: String
+  experiencePoints: Int
+  background: String
+  alignment: String
+  strengthScore: Int
+  dexterityScore: Int
+  constitutionScore: Int
+  intelligenceScore: Int
+  wisdomScore: Int
+  charismaScore: Int
+  proficiencyBonus: Int
+  proficiencies: String
+  hitPointMaximum: Int
+  armorClass: Int
+  speed: Int
+  hitDice: String
+  personalityTraits: String
+  ideals: String
+  bonds: String
+  flaws: String
+  features: String
+  otherProficiencies: String
+  languages: String
+  equipment: String
+  weapons: String
+  backstory: String
+  spells: String
 }
 
 type Query {
@@ -369,12 +607,39 @@ input CampaignFilterCharacterFilter {
   and: [CampaignFilterCharacterFilter!]
   or: [CampaignFilterCharacterFilter!]
   id: IDFilterComparison
-  name: StringFieldComparison
-  level: IntFieldComparison
-  details: StringFieldComparison
-  campaignId: NumberFieldComparison
   createdAt: DateFieldComparison
   updatedAt: DateFieldComparison
+  campaignId: NumberFieldComparison
+  name: StringFieldComparison
+  level: IntFieldComparison
+  class: StringFieldComparison
+  race: StringFieldComparison
+  experiencePoints: IntFieldComparison
+  background: StringFieldComparison
+  alignment: StringFieldComparison
+  strengthScore: IntFieldComparison
+  dexterityScore: IntFieldComparison
+  constitutionScore: IntFieldComparison
+  intelligenceScore: IntFieldComparison
+  wisdomScore: IntFieldComparison
+  charismaScore: IntFieldComparison
+  proficiencyBonus: IntFieldComparison
+  proficiencies: StringFieldComparison
+  hitPointMaximum: IntFieldComparison
+  armorClass: IntFieldComparison
+  speed: IntFieldComparison
+  hitDice: StringFieldComparison
+  personalityTraits: StringFieldComparison
+  ideals: StringFieldComparison
+  bonds: StringFieldComparison
+  flaws: StringFieldComparison
+  features: StringFieldComparison
+  otherProficiencies: StringFieldComparison
+  languages: StringFieldComparison
+  equipment: StringFieldComparison
+  weapons: StringFieldComparison
+  backstory: StringFieldComparison
+  spells: StringFieldComparison
 }
 
 input CampaignSort {
@@ -427,12 +692,39 @@ input CreateOneCharacterInput {
 
 input CreateCharacter {
   id: ID
-  name: String
-  level: Int
-  details: String
-  campaignId: Float
   createdAt: DateTime
   updatedAt: DateTime
+  campaignId: Float
+  name: String
+  level: Int
+  class: String
+  race: String
+  experiencePoints: Int
+  background: String
+  alignment: String
+  strengthScore: Int
+  dexterityScore: Int
+  constitutionScore: Int
+  intelligenceScore: Int
+  wisdomScore: Int
+  charismaScore: Int
+  proficiencyBonus: Int
+  proficiencies: String
+  hitPointMaximum: Int
+  armorClass: Int
+  speed: Int
+  hitDice: String
+  personalityTraits: String
+  ideals: String
+  bonds: String
+  flaws: String
+  features: String
+  otherProficiencies: String
+  languages: String
+  equipment: String
+  weapons: String
+  backstory: String
+  spells: String
 }
 
 input CreateManyCharactersInput {
@@ -450,12 +742,39 @@ input UpdateOneCharacterInput {
 
 input UpdateCharacter {
   id: ID
-  name: String
-  level: Int
-  details: String
-  campaignId: Float
   createdAt: DateTime
   updatedAt: DateTime
+  campaignId: Float
+  name: String
+  level: Int
+  class: String
+  race: String
+  experiencePoints: Int
+  background: String
+  alignment: String
+  strengthScore: Int
+  dexterityScore: Int
+  constitutionScore: Int
+  intelligenceScore: Int
+  wisdomScore: Int
+  charismaScore: Int
+  proficiencyBonus: Int
+  proficiencies: String
+  hitPointMaximum: Int
+  armorClass: Int
+  speed: Int
+  hitDice: String
+  personalityTraits: String
+  ideals: String
+  bonds: String
+  flaws: String
+  features: String
+  otherProficiencies: String
+  languages: String
+  equipment: String
+  weapons: String
+  backstory: String
+  spells: String
 }
 
 input UpdateManyCharactersInput {
@@ -470,12 +789,39 @@ input CharacterUpdateFilter {
   and: [CharacterUpdateFilter!]
   or: [CharacterUpdateFilter!]
   id: IDFilterComparison
-  name: StringFieldComparison
-  level: IntFieldComparison
-  details: StringFieldComparison
-  campaignId: NumberFieldComparison
   createdAt: DateFieldComparison
   updatedAt: DateFieldComparison
+  campaignId: NumberFieldComparison
+  name: StringFieldComparison
+  level: IntFieldComparison
+  class: StringFieldComparison
+  race: StringFieldComparison
+  experiencePoints: IntFieldComparison
+  background: StringFieldComparison
+  alignment: StringFieldComparison
+  strengthScore: IntFieldComparison
+  dexterityScore: IntFieldComparison
+  constitutionScore: IntFieldComparison
+  intelligenceScore: IntFieldComparison
+  wisdomScore: IntFieldComparison
+  charismaScore: IntFieldComparison
+  proficiencyBonus: IntFieldComparison
+  proficiencies: StringFieldComparison
+  hitPointMaximum: IntFieldComparison
+  armorClass: IntFieldComparison
+  speed: IntFieldComparison
+  hitDice: StringFieldComparison
+  personalityTraits: StringFieldComparison
+  ideals: StringFieldComparison
+  bonds: StringFieldComparison
+  flaws: StringFieldComparison
+  features: StringFieldComparison
+  otherProficiencies: StringFieldComparison
+  languages: StringFieldComparison
+  equipment: StringFieldComparison
+  weapons: StringFieldComparison
+  backstory: StringFieldComparison
+  spells: StringFieldComparison
 }
 
 input DeleteOneCharacterInput {
@@ -492,12 +838,39 @@ input CharacterDeleteFilter {
   and: [CharacterDeleteFilter!]
   or: [CharacterDeleteFilter!]
   id: IDFilterComparison
-  name: StringFieldComparison
-  level: IntFieldComparison
-  details: StringFieldComparison
-  campaignId: NumberFieldComparison
   createdAt: DateFieldComparison
   updatedAt: DateFieldComparison
+  campaignId: NumberFieldComparison
+  name: StringFieldComparison
+  level: IntFieldComparison
+  class: StringFieldComparison
+  race: StringFieldComparison
+  experiencePoints: IntFieldComparison
+  background: StringFieldComparison
+  alignment: StringFieldComparison
+  strengthScore: IntFieldComparison
+  dexterityScore: IntFieldComparison
+  constitutionScore: IntFieldComparison
+  intelligenceScore: IntFieldComparison
+  wisdomScore: IntFieldComparison
+  charismaScore: IntFieldComparison
+  proficiencyBonus: IntFieldComparison
+  proficiencies: StringFieldComparison
+  hitPointMaximum: IntFieldComparison
+  armorClass: IntFieldComparison
+  speed: IntFieldComparison
+  hitDice: StringFieldComparison
+  personalityTraits: StringFieldComparison
+  ideals: StringFieldComparison
+  bonds: StringFieldComparison
+  flaws: StringFieldComparison
+  features: StringFieldComparison
+  otherProficiencies: StringFieldComparison
+  languages: StringFieldComparison
+  equipment: StringFieldComparison
+  weapons: StringFieldComparison
+  backstory: StringFieldComparison
+  spells: StringFieldComparison
 }
 
 input AddCharactersToCampaignInput {

@@ -1,14 +1,17 @@
-1. lépés:
+S[✔] C[ ]
+1. lépés
 Karakterlista
 Név-szint-Nagy text field
 
 Kampánylista
 Név-Nagy text field
 
+S[✔] C[ ]
 2. lépés
 Karakterek összekötve kampányokkal
 Onnantól ne a szint legyen kiírva hanem a kampány a karaktereknél
 
+S[ ] C[ ]
 3. lépés
 Abiscoreok
 Profi bonus
@@ -27,10 +30,14 @@ Proficiencies+languages (text)
 Equipment (text)
 Weapon lista (text)
 Sztori
-Kép
 Spellek (text)
 
+S[ ] C[ ]
 4. lépés
+Kép feltöltés
+
+S[ ] C[ ]
+5. lépés
 Új táblában az aktualitások a karakterrel
 Current HP
 AC modifier
@@ -39,21 +46,25 @@ Temporary HP
 Gold-Silver-Copper
 Spell slotok
 
-5. lépés
+S[ ] C[ ]
+6. lépés
 Weapon tábla
 új tábla, ahol fel vannak sorolva a lehetséges fegyverek, és válogathatnak belőle
 Bővíthető legyen
 
-6. lépés
+S[ ] C[ ]
+7. lépés
 Spelllista
 hasonlóan mint az előző
 
-7. lépés
+S[ ] C[ ]
+8. lépés
 Short rest, long rest gombok
 Featureöknél is legyenek amiket short vagy long resetel és látszik hogy resetelődnek
 Ehhet a featureöknek is lista kell, viszont azt nem kell újrahasználhatóan, csak simán mindenki magának
 
-8. lépés
+S[ ] C[ ]
+9. lépés
 Elhasználódó tárgyak is lista, súlyok, darabszám
 Encumbrance számláló
 

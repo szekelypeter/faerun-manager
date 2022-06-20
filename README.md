@@ -43,6 +43,7 @@ The API is pure GraphQL, recommended readings can be found here:
 ###### The non-intuitive bits:
 
 - When creating an entity, the `id` field is *not required* and *not recommended*.
+- The `createdAt` and `updatedAt` values are calculated on the server side, they don't need to be manually updated.
 - When requesting multiple entities, the result is always paginated, and can be used by setting `limit` and `offset`. Example query:
 
 ```GraphQL
@@ -59,5 +60,7 @@ The API is pure GraphQL, recommended readings can be found here:
   }
 }
 ```
+
+- The `characterLongRest` and `characterShortRest` features are just placeholders.
 
 Have fun, Peti! ;)
