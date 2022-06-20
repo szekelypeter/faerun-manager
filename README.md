@@ -40,7 +40,7 @@ The API is pure GraphQL, recommended readings can be found here:
 
 [Implementation details](https://doug-martin.github.io/nestjs-query/docs/concepts/queries)
 
-###### The non-intuitive bits:
+##### The non-intuitive bits:
 
 - When creating an entity, the `id` field is *not required* and *not recommended*.
 - The `createdAt` and `updatedAt` values are calculated on the server side, they don't need to be manually updated.
@@ -55,7 +55,11 @@ The API is pure GraphQL, recommended readings can be found here:
     nodes {
       name
       level
-      details
+      strengthScore
+      backstory
+      campaign {
+        name
+      }
     }
   }
 }

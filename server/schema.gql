@@ -8,35 +8,35 @@ type Character {
   updatedAt: DateTime!
   campaignId: Float!
   name: String!
-  level: Int!
-  class: String!
-  race: String!
-  experiencePoints: Int!
-  background: String!
-  alignment: String!
-  strengthScore: Int!
-  dexterityScore: Int!
-  constitutionScore: Int!
-  intelligenceScore: Int!
-  wisdomScore: Int!
-  charismaScore: Int!
-  proficiencyBonus: Int!
-  proficiencies: String!
-  hitPointMaximum: Int!
-  armorClass: Int!
-  speed: Int!
-  hitDice: String!
-  personalityTraits: String!
-  ideals: String!
-  bonds: String!
-  flaws: String!
-  features: String!
-  otherProficiencies: String!
-  languages: String!
-  equipment: String!
-  weapons: String!
-  backstory: String!
-  spells: String!
+  level: Int
+  class: String
+  race: String
+  experiencePoints: Int
+  background: String
+  alignment: String
+  strengthScore: Int
+  dexterityScore: Int
+  constitutionScore: Int
+  intelligenceScore: Int
+  wisdomScore: Int
+  charismaScore: Int
+  proficiencyBonus: Int
+  proficiencies: String
+  hitPointMaximum: Int
+  armorClass: Int
+  speed: Int
+  hitDice: String
+  personalityTraits: String
+  ideals: String
+  bonds: String
+  flaws: String
+  features: String
+  otherProficiencies: String
+  languages: String
+  equipment: String
+  weapons: String
+  backstory: String
+  spells: String
   campaign: Campaign!
 }
 
