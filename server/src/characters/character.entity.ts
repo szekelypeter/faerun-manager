@@ -1,10 +1,12 @@
-import { FilterableField, IDField, Relation } from '@nestjs-query/query-graphql';
-import { ID, Int, ObjectType } from '@nestjs/graphql';
+import { FilterableField, IDField, PagingStrategies, QueryOptions, Relation } from '@nestjs-query/query-graphql';
+import { SortDirection } from '@nestjs-query/core';
+import { GraphQLISODateTime, ID, Int, ObjectType } from '@nestjs/graphql';
 import { AllowNull, AutoIncrement, BelongsTo, Column, ForeignKey, Model, PrimaryKey, Table } from 'sequelize-typescript';
 import { Campaign } from 'src/campaigns/campaign.entity';
 
 @Table
 @ObjectType('Character')
+@QueryOptions({ pagingStrategy: PagingStrategies.OFFSET, defaultSort: [ { field: 'updatedAt', direction: SortDirection.DESC } ] })
 @Relation('campaign', () => Campaign, { disableRemove: true })
 export class Character extends Model<Character, Partial<Character>> {
   @PrimaryKey
@@ -34,4 +36,10 @@ export class Character extends Model<Character, Partial<Character>> {
 
   @BelongsTo(() => Campaign)
   campaign: Campaign;
+
+  @FilterableField(() => GraphQLISODateTime)
+  createdAt!: Date;
+
+  @FilterableField(() => GraphQLISODateTime)
+  updatedAt!: Date;
 }

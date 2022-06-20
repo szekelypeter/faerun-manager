@@ -6,7 +6,7 @@
 
 ### Server
 
-###### Node 16+
+###### Node.js 16+
 
 Add [node](https://github.com/asdf-vm/asdf-nodejs) plugin to asdf, or install the latest stable with NVM. You can check current nodejs version with `node --version`. 
 
@@ -39,5 +39,25 @@ The API is pure GraphQL, recommended readings can be found here:
 [GraphQL advanced queries](https://graphql.org/learn/queries/)
 
 [Implementation details](https://doug-martin.github.io/nestjs-query/docs/concepts/queries)
+
+###### The non-intuitive bits:
+
+- When creating an entity, the `id` field is *not required* and *not recommended*.
+- When requesting multiple entities, the result is always paginated, and can be used by setting `limit` and `offset`. Example query:
+
+```GraphQL
+{
+  characters(paging: { limit: 10, offset: 0 }) {
+    pageInfo {
+      hasNextPage
+    }
+    nodes {
+      name
+      level
+      details
+    }
+  }
+}
+```
 
 Have fun, Peti! ;)
