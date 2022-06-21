@@ -30,7 +30,7 @@ The HTTP server is listening on :3000, and the GraphQL endpoint is `/graphql`.
 
 The database is located in `server/db/database.sqlite` by default.
 
-### Development
+### API
 
 The API is pure GraphQL, recommended readings can be found here:
 
@@ -44,7 +44,48 @@ The API is pure GraphQL, recommended readings can be found here:
 
 - When creating an entity, the `id` field is *not required* and *not recommended*.
 - The `createdAt` and `updatedAt` values are calculated on the server side, they don't need to be manually updated.
-- When requesting multiple entities, the result is always paginated, and can be used by setting `limit` and `offset`. Example query:
+- When requesting multiple entities, the result is always paginated, and can be used by setting `limit` and `offset`.
+- The `characterLongRest` and `characterShortRest` features are just placeholders.
+
+##### Example queries
+
+Create a new campaign:
+
+```GraphQL
+mutation {
+  createOneCampaign(
+    input: {
+      campaign: {
+        name: "Storm king's tündér",
+        details: "Fun little campaign"
+    } }
+  ) {
+    id
+  }
+}
+```
+
+Add a new character sheet to the created campaign:
+
+```GraphQL
+mutation {
+  createOneCharacter(
+    input: { character: {
+      name: "Dethmos",
+      campaignId: 1,
+      level: 9,
+      class: "Cleric"
+      strengthScore: 14
+    } }
+  ) {
+    id
+  }
+}
+```
+
+*Note: the `campaignId` is the number returned by the last query*
+
+List the first 10 characters:
 
 ```GraphQL
 {
@@ -65,6 +106,15 @@ The API is pure GraphQL, recommended readings can be found here:
 }
 ```
 
-- The `characterLongRest` and `characterShortRest` features are just placeholders.
+Execute a short rest on the created character:
+
+```GraphQL
+mutation {
+  characterShortRest(id: 1) {
+    healthRestored
+  }
+}
+
+```
 
 Have fun, Peti! ;)

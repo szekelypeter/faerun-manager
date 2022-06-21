@@ -11,7 +11,7 @@ S[✔] C[ ]
 Karakterek összekötve kampányokkal
 Onnantól ne a szint legyen kiírva hanem a kampány a karaktereknél
 
-S[ ] C[ ]
+S[✔] C[ ]
 3. lépés
 Abiscoreok
 Profi bonus
